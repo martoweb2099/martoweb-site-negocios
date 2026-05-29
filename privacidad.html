@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aviso de Privacidad – mArto web</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            electric: '#2563EB',
+            electricDark: '#1D4ED8',
+          },
+          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] }
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+</head>
+
+<body class="flex flex-col min-h-screen bg-gray-50 font-sans text-gray-700 antialiased">
+
+  <!-- ── HEADER SIMPLE ── -->
+  <header class="bg-white border-b border-gray-100 shadow-sm sticky top-0 z-40">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+
+      <!-- Volver al inicio -->
+      <a href="index.html"
+         class="inline-flex items-center gap-2 text-sm font-semibold text-electric hover:text-electricDark transition-colors group">
+        <svg class="w-4 h-4 transition-transform group-hover:-translate-x-1" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
+        </svg>
+        Volver al inicio
+      </a>
+
+      <!-- Logo -->
+      <a href="index.html" class="text-xl font-black tracking-tight select-none">
+        <span class="text-electric">m</span><span class="text-gray-900">Arto</span>
+        <span class="ml-1 text-xs font-semibold tracking-widest text-electric uppercase bg-blue-50 px-2 py-0.5 rounded-full align-middle">web</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- ── MAIN ── -->
+  <main class="flex-grow py-10 px-4 sm:px-6">
+    <div class="max-w-3xl mx-auto">
+
+      <!-- Encabezado del documento -->
+      <div class="text-center mb-8">
+        <span class="inline-block bg-blue-100 text-electric text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-3">
+          Documento legal
+        </span>
+        <h1 class="text-3xl sm:text-4xl font-black text-gray-900 mb-2">Aviso de Privacidad</h1>
+        <p class="text-gray-400 text-sm">Simplificado · Conforme a la LFPDPPP y lineamientos del INAI</p>
+        <p class="text-gray-400 text-xs mt-1">Última actualización: junio de 2026</p>
+      </div>
+
+      <!-- ── TARJETA PRINCIPAL ── -->
+      <div class="bg-white rounded-3xl shadow-sm border border-gray-100 divide-y divide-gray-50 overflow-hidden">
+
+        <!-- 1. ¿Quiénes somos? -->
+        <div class="p-6 sm:p-8">
+          <div class="flex items-start gap-4">
+            <span class="text-2xl mt-0.5">🏢</span>
+            <div>
+              <h2 class="text-lg font-bold text-gray-900 mb-2">1. ¿Quiénes somos?</h2>
+              <p class="text-sm leading-relaxed text-gray-600">
+                El responsable del tratamiento de sus datos personales es <strong class="text-gray-800">Luis Angel Díaz Martínez</strong>,
+                quien opera bajo el nombre comercial <strong class="text-gray-800">mArto web</strong>,
+                con domicilio en <strong class="text-gray-800">Juárez, Nuevo León, México</strong>.
+              </p>
+              <p class="text-sm leading-relaxed text-gray-600 mt-2">
+                Para cualquier consulta relacionada con este aviso, puede contactarnos en:
+                <a href="mailto:007interestingstuff@gmail.com"
+                   class="text-electric font-semibold hover:underline">
+                  007interestingstuff@gmail.com
+                </a>
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. ¿Qué datos recabamos? -->
+        <div class="p-6 sm:p-8">
+          <div class="flex items-start gap-4">
+            <span class="text-2xl mt-0.5">📋</span>
+            <div class="w-full">
+              <h2 class="text-lg font-bold text-gray-900 mb-2">2. ¿Qué datos personales recabamos?</h2>
+              <p class="text-sm leading-relaxed text-gray-600 mb-4">
+                Nuestra página web <strong class="text-gray-800">no cuenta con formularios propios</strong> que almacenen datos en servidores propios. Los datos que podemos llegar a tratar provienen de dos fuentes voluntarias e indirectas:
+              </p>
+              <div class="space-y-3">
+                <!-- WhatsApp -->
+                <div class="flex gap-3 bg-green-50 border border-green-100 rounded-2xl p-4">
+                  <span class="text-xl flex-shrink-0">💬</span>
+                  <div>
+                    <p class="text-sm font-semibold text-gray-800 mb-0.5">Redireccionamiento a WhatsApp</p>
+                    <p class="text-xs text-gray-500 leading-relaxed">
+                      Al hacer clic en nuestros botones de cotización, usted es redirigido a la plataforma de <strong>WhatsApp</strong> (propiedad de Meta Platforms, Inc.), donde comparte voluntariamente su número telefónico y el mensaje que decida enviarnos. Esta acción es completamente opcional e iniciada por usted. Los datos compartidos por este medio quedan sujetos también a las
+                      <a href="https://www.whatsapp.com/legal/privacy-policy" target="_blank" class="text-electric hover:underline">políticas de privacidad de WhatsApp</a>.
+                    </p>
+                  </div>
+                </div>
+                <!-- Analytics -->
+                <div class="flex gap-3 bg-blue-50 border border-blue-100 rounded-2xl p-4">
+                  <span class="text-xl flex-shrink-0">📊</span>
+                  <div>
+                    <p class="text-sm font-semibold text-gray-800 mb-0.5">Vercel Analytics (estadísticas anónimas)</p>
+                    <p class="text-xs text-gray-500 leading-relaxed">
+                      Utilizamos la herramienta <strong>Vercel Analytics</strong> para medir el tráfico de nuestra página web de forma <strong>totalmente anónima</strong>. Esta herramienta registra únicamente datos agregados como: número de visitas, tipo de dispositivo y región geográfica general (ciudad aproximada). <strong>No almacena cookies de rastreo personal, no registra direcciones IP exactas y no crea perfiles individuales de usuarios.</strong> La información obtenida es exclusivamente estadística y no permite identificar a ninguna persona en particular.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. ¿Para qué los usamos? -->
+        <div class="p-6 sm:p-8">
+          <div class="flex items-start gap-4">
+            <span class="text-2xl mt-0.5">🎯</span>
+            <div>
+              <h2 class="text-lg font-bold text-gray-900 mb-2">3. ¿Para qué usamos sus datos?</h2>
+              <p class="text-sm leading-relaxed text-gray-600 mb-3">
+                Los datos de contacto que usted nos proporciona voluntariamente a través de WhatsApp serán utilizados <strong class="text-gray-800">única y exclusivamente</strong> para las siguientes <span class="text-electric font-semibold">finalidades primarias</span> (necesarias para la relación comercial):
+              </p>
+              <ul class="space-y-2">
+                <li class="flex gap-2 text-sm text-gray-600">
+                  <span class="text-electric font-bold mt-0.5">✓</span>
+                  Responder a su solicitud de cotización de servicios de diseño web.
+                </li>
+                <li class="flex gap-2 text-sm text-gray-600">
+                  <span class="text-electric font-bold mt-0.5">✓</span>
+                  Enviarle información sobre el presupuesto, características y proceso de entrega de su landing page.
+                </li>
+                <li class="flex gap-2 text-sm text-gray-600">
+                  <span class="text-electric font-bold mt-0.5">✓</span>
+                  Dar seguimiento a la prestación del servicio contratado.
+                </li>
+              </ul>
+              <div class="mt-4 bg-gray-50 border border-gray-100 rounded-2xl p-4">
+                <p class="text-xs text-gray-500 leading-relaxed">
+                  <strong class="text-gray-700">⚠️ Aviso importante:</strong> No utilizamos sus datos para enviar publicidad no solicitada (spam), no los compartimos con terceros con fines comerciales ajenos a la prestación del servicio y no realizamos transferencias de datos a empresas externas, salvo las inherentes al uso de WhatsApp como canal de comunicación elegido por usted.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Transferencia de datos -->
+        <div class="p-6 sm:p-8">
+          <div class="flex items-start gap-4">
+            <span class="text-2xl mt-0.5">🔒</span>
+            <div>
+              <h2 class="text-lg font-bold text-gray-900 mb-2">4. Transferencia de datos a terceros</h2>
+              <p class="text-sm leading-relaxed text-gray-600">
+                <strong class="text-gray-800">mArto web no vende, arrienda ni cede</strong> sus datos personales a terceros. La única transferencia que ocurre de manera inherente es la comunicación realizada a través de la plataforma WhatsApp, sujeta a sus propias políticas de privacidad. Vercel Analytics, al operar con datos completamente anonimizados, no implica transferencia de datos personales identificables en ningún sentido.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. Derechos ARCO -->
+        <div class="p-6 sm:p-8">
+          <div class="flex items-start gap-4">
+            <span class="text-2xl mt-0.5">⚖️</span>
+            <div class="w-full">
+              <h2 class="text-lg font-bold text-gray-900 mb-1">5. Sus derechos ARCO</h2>
+              <p class="text-xs text-gray-400 mb-3">Conforme a la Ley Federal de Protección de Datos Personales en Posesión de los Particulares (LFPDPPP)</p>
+              <p class="text-sm text-gray-600 mb-4">
+                Como titular de sus datos personales, usted tiene derecho a ejercer en cualquier momento los siguientes derechos:
+              </p>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div class="bg-gray-50 rounded-2xl p-4 border border-gray-100">
+                  <p class="text-sm font-bold text-electric mb-1">A · Acceso</p>
+                  <p class="text-xs text-gray-500">Conocer qué datos personales suyos tenemos y cómo los tratamos.</p>
+                </div>
+                <div class="bg-gray-50 rounded-2xl p-4 border border-gray-100">
+                  <p class="text-sm font-bold text-electric mb-1">R · Rectificación</p>
+                  <p class="text-xs text-gray-500">Solicitar la corrección de sus datos si son inexactos o están incompletos.</p>
+                </div>
+                <div class="bg-gray-50 rounded-2xl p-4 border border-gray-100">
+                  <p class="text-sm font-bold text-electric mb-1">C · Cancelación</p>
+                  <p class="text-xs text-gray-500">Pedir la eliminación de sus datos cuando considere que no son necesarios para la finalidad que los recabamos.</p>
+                </div>
+                <div class="bg-gray-50 rounded-2xl p-4 border border-gray-100">
+                  <p class="text-sm font-bold text-electric mb-1">O · Oposición</p>
+                  <p class="text-xs text-gray-500">Oponerse al tratamiento de sus datos para finalidades específicas.</p>
+                </div>
+              </div>
+              <div class="mt-4 bg-blue-50 border border-blue-100 rounded-2xl p-4">
+                <p class="text-sm text-gray-600">
+                  Para ejercer cualquiera de estos derechos, envíe su solicitud al correo:
+                  <a href="mailto:007interestingstuff@gmail.com" class="text-electric font-semibold hover:underline">
+                    007interestingstuff@gmail.com
+                  </a>
+                  indicando su nombre completo, el derecho que desea ejercer y una descripción clara de su solicitud. Daremos respuesta en un plazo máximo de <strong class="text-gray-800">20 días hábiles</strong>, conforme a lo establecido en la LFPDPPP.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. Cookies -->
+        <div class="p-6 sm:p-8">
+          <div class="flex items-start gap-4">
+            <span class="text-2xl mt-0.5">🍪</span>
+            <div>
+              <h2 class="text-lg font-bold text-gray-900 mb-2">6. Uso de cookies y tecnologías de rastreo</h2>
+              <p class="text-sm leading-relaxed text-gray-600">
+                Nuestra página web <strong class="text-gray-800">no utiliza cookies de rastreo personal</strong> ni tecnologías de seguimiento individualizadas. Vercel Analytics opera sin almacenar cookies en su navegador y sin construir perfiles de usuario. Si usted utiliza extensiones de bloqueo de rastreo (como uBlock Origin o similar), su experiencia de navegación en nuestro sitio no se verá afectada.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 7. Cambios al aviso -->
+        <div class="p-6 sm:p-8">
+          <div class="flex items-start gap-4">
+            <span class="text-2xl mt-0.5">🔄</span>
+            <div>
+              <h2 class="text-lg font-bold text-gray-900 mb-2">7. Cambios a este aviso de privacidad</h2>
+              <p class="text-sm leading-relaxed text-gray-600">
+                <strong class="text-gray-800">mArto web</strong> se reserva el derecho de modificar este aviso de privacidad en cualquier momento para adaptarlo a cambios legislativos, jurisprudenciales o en sus prácticas de negocio. Cualquier modificación será publicada en esta misma página con la fecha de actualización correspondiente. Le recomendamos revisarla periódicamente.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 8. Autoridad -->
+        <div class="p-6 sm:p-8 bg-gray-50/50">
+          <div class="flex items-start gap-4">
+            <span class="text-2xl mt-0.5">🏛️</span>
+            <div>
+              <h2 class="text-lg font-bold text-gray-900 mb-2">8. Autoridad competente</h2>
+              <p class="text-sm leading-relaxed text-gray-600">
+                Si considera que su derecho a la protección de datos personales ha sido vulnerado, tiene derecho a acudir ante el <strong class="text-gray-800">Instituto Nacional de Transparencia, Acceso a la Información y Protección de Datos Personales (INAI)</strong> para presentar una queja o denuncia. Puede hacerlo a través de su portal oficial en
+                <a href="https://www.inai.org.mx" target="_blank" class="text-electric font-semibold hover:underline">www.inai.org.mx</a>.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- /TARJETA PRINCIPAL -->
+
+      <!-- Nota final -->
+      <p class="text-center text-xs text-gray-400 mt-8 mb-2">
+        Este aviso de privacidad fue elaborado con base en la
+        <strong class="text-gray-500">Ley Federal de Protección de Datos Personales en Posesión de los Particulares</strong>
+        y los lineamientos del INAI vigentes en México.
+      </p>
+
+    </div>
+  </main>
+
+  <!-- ── FOOTER SIMPLE ── -->
+  <footer class="bg-slate-900 py-5 px-4 text-center">
+    <p class="text-gray-500 text-xs">© 2026 <span class="text-white font-semibold">mArto web</span>. Todos los derechos reservados.</p>
+  </footer>
+
+</body>
+</html>
