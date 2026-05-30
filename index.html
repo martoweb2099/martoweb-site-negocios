@@ -1,299 +1,577 @@
 <!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>mArto web – Landing Pages para Negocios Locales</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            electric: '#2563EB',
-            electricLight: '#3B82F6',
-            electricDark: '#1D4ED8',
-            slate900: '#0F172A',
-          },
-          fontFamily: {
-            sans: ['Inter', 'system-ui', 'sans-serif'],
-          }
-        }
-      }
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>mArto web – Landing Pages que Consiguen Clientes</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        blue:  { 400:'#60A5FA', 500:'#3B82F6', 600:'#2563EB', 700:'#1D4ED8' },
+        night: '#080C14',
+        surface: '#0E1420',
+        card:  '#131926',
+      },
+      fontFamily: { sans:['Inter','system-ui','sans-serif'] },
     }
-  </script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
-  <style>
-    .logo-m { color: #2563EB; }
-    .hero-gradient { background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%); }
-    .card-hover { transition: transform .2s, box-shadow .2s; }
-    .card-hover:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(37,99,235,.13); }
-    .map-card { background: #fff; border-radius: 16px; box-shadow: 0 8px 40px rgba(0,0,0,.13); overflow: hidden; }
-    .map-pin { animation: bounce 1.4s infinite; }
-    @keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
-  </style>
+  }
+}
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;0,14..32,900;1,14..32,400&display=swap" rel="stylesheet"/>
+<style>
+/* ── Base ── */
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:#080C14}
+body{background:#080C14;color:#E2E8F0;font-family:'Inter',system-ui,sans-serif;overflow-x:hidden}
+
+/* ── Glow ── */
+.glow-blue{box-shadow:0 0 60px rgba(37,99,235,.35),0 0 120px rgba(37,99,235,.12)}
+.glow-sm{box-shadow:0 0 24px rgba(37,99,235,.4)}
+.text-glow{text-shadow:0 0 40px rgba(96,165,250,.5)}
+
+/* ── Glass ── */
+.glass{background:rgba(19,25,38,.7);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.07)}
+.glass-light{background:rgba(255,255,255,.04);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.08)}
+
+/* ── Gradients ── */
+.grad-text{background:linear-gradient(135deg,#60A5FA 0%,#a78bfa 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.grad-text-warm{background:linear-gradient(135deg,#60A5FA 0%,#67e8f9 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-bg{background:radial-gradient(ellipse 80% 60% at 50% -10%,rgba(37,99,235,.22) 0%,transparent 70%)}
+.section-glow{background:radial-gradient(ellipse 60% 40% at 80% 50%,rgba(37,99,235,.1) 0%,transparent 70%)}
+.cta-bg{background:linear-gradient(135deg,#1D4ED8 0%,#2563EB 50%,#4F46E5 100%)}
+
+/* ── Grid pattern ── */
+.grid-pattern{background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:48px 48px}
+
+/* ── Cards ── */
+.benefit-card{background:rgba(19,25,38,.8);border:1px solid rgba(255,255,255,.07);transition:border-color .3s,transform .3s,box-shadow .3s}
+.benefit-card:hover{border-color:rgba(37,99,235,.5);transform:translateY(-6px);box-shadow:0 20px 60px rgba(37,99,235,.15)}
+
+.step-card{background:rgba(19,25,38,.6);border:1px solid rgba(255,255,255,.06);transition:border-color .3s}
+.step-card:hover{border-color:rgba(96,165,250,.3)}
+
+/* ── Map mock ── */
+.map-mock{background:rgba(19,25,38,.9);border:1px solid rgba(255,255,255,.1);border-radius:20px;overflow:hidden}
+.map-streets{background-image:linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);background-size:32px 32px}
+.pin-pulse::after{content:'';position:absolute;inset:-6px;border-radius:50%;border:2px solid rgba(37,99,235,.5);animation:pulse-ring 2s ease-out infinite}
+@keyframes pulse-ring{0%{transform:scale(1);opacity:1}100%{transform:scale(1.8);opacity:0}}
+
+/* ── Animations ── */
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes fade-up{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fade-in{from{opacity:0}to{opacity:1}}
+@keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+
+.float{animation:float 4s ease-in-out infinite}
+.fade-up{opacity:0;animation:fade-up .7s cubic-bezier(.22,1,.36,1) forwards}
+.d1{animation-delay:.1s}.d2{animation-delay:.22s}.d3{animation-delay:.36s}.d4{animation-delay:.5s}.d5{animation-delay:.64s}
+
+.shimmer-btn{background:linear-gradient(90deg,#2563EB 0%,#4F46E5 40%,#60A5FA 60%,#2563EB 100%);background-size:200% 100%;animation:shimmer 3s linear infinite;transition:transform .2s,box-shadow .2s}
+.shimmer-btn:hover{transform:translateY(-2px) scale(1.02);box-shadow:0 8px 32px rgba(37,99,235,.5)}
+.shimmer-btn:active{transform:scale(.98)}
+
+.ghost-btn{border:1px solid rgba(255,255,255,.18);color:#CBD5E1;transition:all .25s}
+.ghost-btn:hover{border-color:rgba(96,165,250,.6);color:#60A5FA;background:rgba(37,99,235,.08)}
+
+/* ── Stat pill ── */
+.stat-pill{background:rgba(37,99,235,.15);border:1px solid rgba(37,99,235,.3);color:#93C5FD}
+
+/* ── Nav ── */
+#nav{transition:background .3s,border-color .3s}
+#nav.scrolled{background:rgba(8,12,20,.85)!important;backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,.07)}
+
+/* ── Tag ── */
+.tag{background:rgba(37,99,235,.15);border:1px solid rgba(37,99,235,.3);color:#93C5FD;font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.25rem .75rem;border-radius:999px}
+
+/* ── Divider ── */
+.section-divider{height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.08),transparent)}
+
+/* ── Scroll reveal ── */
+.reveal{opacity:0;transform:translateY(32px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* ── Process number ── */
+.proc-num{background:linear-gradient(135deg,rgba(37,99,235,.3),rgba(79,70,229,.2));border:1px solid rgba(37,99,235,.4);color:#60A5FA;font-weight:800;font-size:1.1rem;width:2.5rem;height:2.5rem;border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+
+/* ── Mobile menu ── */
+#mobile-menu{display:none;position:fixed;inset:0;top:64px;background:rgba(8,12,20,.97);backdrop-filter:blur(20px);z-index:49;padding:2rem 1.5rem;flex-direction:column;gap:1rem}
+#mobile-menu.open{display:flex}
+</style>
 </head>
 
-<body class="flex flex-col min-h-screen font-sans bg-white text-gray-800 antialiased">
+<body>
 
-  <!-- ============================================================
-       HEADER – Fijo / Sticky
-  ============================================================ -->
-  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-gray-100 shadow-sm">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+<!-- ════════════════════════════════════════════
+     HEADER
+════════════════════════════════════════════ -->
+<header id="nav" class="fixed top-0 left-0 right-0 z-50 border-b border-transparent" style="background:transparent">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
 
-      <!-- Logo -->
-      <a href="#inicio" class="flex items-center gap-1 text-2xl font-black tracking-tight select-none">
-        <span class="logo-m">m</span><span class="text-gray-900">Arto</span>
-        <span class="ml-1 text-xs font-semibold tracking-widest text-electric uppercase bg-blue-50 px-2 py-0.5 rounded-full">web</span>
-      </a>
+    <!-- Logo -->
+    <a href="#inicio" class="flex items-center gap-2 select-none">
+      <span class="text-xl font-black tracking-tight">
+        <span style="color:#60A5FA">m</span><span class="text-white">Arto</span>
+      </span>
+      <span class="tag" style="font-size:.6rem">web</span>
+    </a>
 
-      <!-- Nav – escritorio -->
-      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-600">
-        <a href="#inicio"    class="hover:text-electric transition-colors">Inicio</a>
-        <a href="#beneficios" class="hover:text-electric transition-colors">Beneficios</a>
-        <a href="#contacto"  class="hover:text-electric transition-colors">Contacto</a>
-      </nav>
+    <!-- Nav desktop -->
+    <nav class="hidden md:flex items-center gap-7 text-sm font-medium" style="color:#94A3B8">
+      <a href="#inicio"     class="hover:text-white transition-colors duration-200">Inicio</a>
+      <a href="#beneficios" class="hover:text-white transition-colors duration-200">Beneficios</a>
+      <a href="#proceso"    class="hover:text-white transition-colors duration-200">Proceso</a>
+      <a href="#contacto"   class="hover:text-white transition-colors duration-200">Contacto</a>
+    </nav>
 
-      <!-- CTA header -->
-      <a href="https://wa.me/5218117920716?text=Hola%2C%20quiero%20una%20landing%20page"
+    <!-- CTA -->
+    <div class="flex items-center gap-3">
+      <a href="https://wa.me/5218117920716?text=Hola%2C%20quiero%20mi%20landing%20page"
          target="_blank"
-         class="flex items-center gap-2 bg-electric hover:bg-electricDark text-white text-sm font-semibold px-4 py-2 rounded-full shadow transition-colors">
-        <!-- WhatsApp icon -->
-        <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M20.52 3.48A11.94 11.94 0 0 0 12 0C5.37 0 0 5.37 0 12c0 2.11.55 4.16 1.6 5.97L0 24l6.22-1.57A11.94 11.94 0 0 0 12 24c6.63 0 12-5.37 12-12 0-3.21-1.25-6.22-3.48-8.52zM12 22c-1.85 0-3.67-.5-5.24-1.44l-.38-.22-3.69.93.98-3.58-.25-.38A9.94 9.94 0 0 1 2 12C2 6.48 6.48 2 12 2c2.67 0 5.18 1.04 7.07 2.93A9.94 9.94 0 0 1 22 12c0 5.52-4.48 10-10 10zm5.44-7.4c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.47-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37s-1.04 1.02-1.04 2.48 1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35z"/></svg>
-        <span class="hidden sm:inline">Cotizar ahora</span>
-        <span class="sm:hidden">Cotizar</span>
+         class="shimmer-btn hidden sm:flex items-center gap-2 text-white text-sm font-bold px-4 py-2 rounded-xl">
+        <svg class="w-4 h-4 fill-white flex-shrink-0" viewBox="0 0 24 24"><path d="M20.52 3.48A11.94 11.94 0 0 0 12 0C5.37 0 0 5.37 0 12c0 2.11.55 4.16 1.6 5.97L0 24l6.22-1.57A11.94 11.94 0 0 0 12 24c6.63 0 12-5.37 12-12 0-3.21-1.25-6.22-3.48-8.52zM12 22c-1.85 0-3.67-.5-5.24-1.44l-.38-.22-3.69.93.98-3.58-.25-.38A9.94 9.94 0 0 1 2 12C2 6.48 6.48 2 12 2c2.67 0 5.18 1.04 7.07 2.93A9.94 9.94 0 0 1 22 12c0 5.52-4.48 10-10 10zm5.44-7.4c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.47-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37s-1.04 1.02-1.04 2.48 1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35z"/></svg>
+        Cotizar ahora
       </a>
+      <!-- hamburger -->
+      <button id="menu-btn" class="md:hidden p-2 rounded-lg glass-light" onclick="toggleMenu()" aria-label="Menú">
+        <svg id="menu-icon" class="w-5 h-5 text-white fill-none stroke-current stroke-2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
     </div>
-  </header>
-  <!-- /HEADER -->
+  </div>
+</header>
+
+<!-- Mobile menu -->
+<div id="mobile-menu" role="navigation">
+  <a href="#inicio"     onclick="closeMenu()" class="text-lg font-semibold text-white py-3 border-b border-white/10">Inicio</a>
+  <a href="#beneficios" onclick="closeMenu()" class="text-lg font-semibold text-white py-3 border-b border-white/10">Beneficios</a>
+  <a href="#proceso"    onclick="closeMenu()" class="text-lg font-semibold text-white py-3 border-b border-white/10">Proceso</a>
+  <a href="#contacto"   onclick="closeMenu()" class="text-lg font-semibold text-white py-3 border-b border-white/10">Contacto</a>
+  <a href="https://wa.me/5218117920716?text=Hola%2C%20quiero%20mi%20landing%20page" target="_blank"
+     class="shimmer-btn flex items-center justify-center gap-2 text-white font-bold px-6 py-4 rounded-xl mt-4">
+    <svg class="w-5 h-5 fill-white" viewBox="0 0 24 24"><path d="M20.52 3.48A11.94 11.94 0 0 0 12 0C5.37 0 0 5.37 0 12c0 2.11.55 4.16 1.6 5.97L0 24l6.22-1.57A11.94 11.94 0 0 0 12 24c6.63 0 12-5.37 12-12 0-3.21-1.25-6.22-3.48-8.52zM12 22c-1.85 0-3.67-.5-5.24-1.44l-.38-.22-3.69.93.98-3.58-.25-.38A9.94 9.94 0 0 1 2 12C2 6.48 6.48 2 12 2c2.67 0 5.18 1.04 7.07 2.93A9.94 9.94 0 0 1 22 12c0 5.52-4.48 10-10 10zm5.44-7.4c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.47-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37s-1.04 1.02-1.04 2.48 1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35z"/></svg>
+    Escribir por WhatsApp
+  </a>
+</div>
 
 
-  <!-- ============================================================
-       MAIN – Zona scrolleable (añade nuevas secciones aquí abajo)
-  ============================================================ -->
-  <main class="flex-grow">
+<!-- ════════════════════════════════════════════
+     HERO
+════════════════════════════════════════════ -->
+<section id="inicio" class="relative min-h-screen flex items-center pt-16 grid-pattern hero-bg overflow-hidden">
 
+  <!-- Ambient orbs -->
+  <div class="absolute top-1/4 left-1/4 w-96 h-96 rounded-full pointer-events-none" style="background:radial-gradient(circle,rgba(37,99,235,.18) 0%,transparent 70%);filter:blur(40px)"></div>
+  <div class="absolute bottom-1/4 right-1/4 w-64 h-64 rounded-full pointer-events-none" style="background:radial-gradient(circle,rgba(79,70,229,.14) 0%,transparent 70%);filter:blur(40px)"></div>
 
-    <!-- ----------------------------------------------------------
-         SECCIÓN 1: HERO
-    ---------------------------------------------------------- -->
-    <section id="inicio" class="hero-gradient py-16 md:py-24 px-4 sm:px-6 lg:px-8">
-      <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-10 md:gap-16">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full">
+    <div class="flex flex-col lg:flex-row items-center gap-14 lg:gap-20">
 
-        <!-- Texto -->
-        <div class="w-full md:w-1/2 text-center md:text-left">
-          <span class="inline-block bg-blue-100 text-electric text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-4">
-            🗺️ Para negocios en Google Maps
-          </span>
-          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-gray-900 leading-tight mb-5">
-            ¿Tu negocio está en Maps, pero<br class="hidden sm:block"/>
-            <span class="text-electric">no tienes página web?</span>
-          </h1>
-          <p class="text-lg text-gray-500 mb-8 max-w-md mx-auto md:mx-0">
-            Te diseñamos una landing page profesional en tiempo récord para que tus clientes te llamen o te escriban por WhatsApp directamente.
-          </p>
-          <div class="flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
-            <a href="https://wa.me/5218117920716?text=Hola%2C%20quiero%20mi%20landing%20page"
-               target="_blank"
-               class="flex items-center justify-center gap-2 bg-electric hover:bg-electricDark text-white text-base font-bold px-8 py-4 rounded-2xl shadow-lg hover:shadow-electric/30 transition-all active:scale-95">
-              <svg class="w-5 h-5 fill-current flex-shrink-0" viewBox="0 0 24 24"><path d="M20.52 3.48A11.94 11.94 0 0 0 12 0C5.37 0 0 5.37 0 12c0 2.11.55 4.16 1.6 5.97L0 24l6.22-1.57A11.94 11.94 0 0 0 12 24c6.63 0 12-5.37 12-12 0-3.21-1.25-6.22-3.48-8.52zM12 22c-1.85 0-3.67-.5-5.24-1.44l-.38-.22-3.69.93.98-3.58-.25-.38A9.94 9.94 0 0 1 2 12C2 6.48 6.48 2 12 2c2.67 0 5.18 1.04 7.07 2.93A9.94 9.94 0 0 1 22 12c0 5.52-4.48 10-10 10zm5.44-7.4c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.47-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37s-1.04 1.02-1.04 2.48 1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35z"/></svg>
-              Quiero mi página ahora
-            </a>
-            <a href="#beneficios"
-               class="flex items-center justify-center gap-1 text-electric font-semibold text-base px-6 py-4 rounded-2xl border-2 border-blue-200 hover:bg-blue-50 transition-all">
-              Ver beneficios ↓
-            </a>
-          </div>
+      <!-- LEFT: copy -->
+      <div class="w-full lg:w-[54%] text-center lg:text-left">
+        <div class="fade-up d1 inline-flex items-center gap-2 mb-6">
+          <span class="tag">🗺️ Para negocios en Google Maps</span>
         </div>
 
-        <!-- Tarjeta visual tipo Google Maps -->
-        <div class="w-full md:w-1/2 flex justify-center">
-          <div class="map-card w-full max-w-sm">
-            <!-- Barra superior tipo Maps -->
-            <div class="bg-white px-4 py-3 flex items-center gap-3 border-b border-gray-100">
-              <div class="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
-                <svg class="w-4 h-4 text-electric fill-current" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 0 1 9.5 9 2.5 2.5 0 0 1 12 6.5 2.5 2.5 0 0 1 14.5 9 2.5 2.5 0 0 1 12 11.5z"/></svg>
+        <h1 class="fade-up d2 font-black leading-none tracking-tight mb-6" style="font-size:clamp(2.4rem,5vw,3.8rem);line-height:1.05">
+          Tu negocio aparece en Maps.<br/>
+          <span class="grad-text">Pero nadie te llama.</span>
+        </h1>
+
+        <p class="fade-up d3 text-lg leading-relaxed mb-3 max-w-lg mx-auto lg:mx-0" style="color:#94A3B8">
+          Te creamos una landing page profesional en <strong class="text-white font-semibold">MENOS de una semana</strong> que convierte visitantes en clientes reales — con botón directo a WhatsApp, carga ultra rápida y diseño que transmite confianza desde el primer segundo.
+        </p>
+
+        <p class="fade-up d3 text-sm mb-8 font-medium" style="color:#64748B">
+          Elige el como subirla a la red · Entrega garantizada
+        </p>
+
+        <!-- Stats row -->
+        <div class="fade-up d3 flex flex-wrap justify-center lg:justify-start gap-3 mb-10">
+          <span class="stat-pill text-xs font-bold px-3 py-1.5 rounded-full">⚡ Entrega rapida</span>
+          <span class="stat-pill text-xs font-bold px-3 py-1.5 rounded-full">📱 visibilidad móvil</span>
+          <span class="stat-pill text-xs font-bold px-3 py-1.5 rounded-full">🔍 Visibilidad en Google</span>
+        </div>
+
+        <!-- CTAs -->
+        <div class="fade-up d4 flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
+          <a href="https://wa.me/5218117920716?text=Hola%2C%20quiero%20mi%20landing%20page"
+             target="_blank"
+             class="shimmer-btn flex items-center justify-center gap-2 text-white font-bold text-base px-7 py-4 rounded-2xl">
+            <svg class="w-5 h-5 fill-white flex-shrink-0" viewBox="0 0 24 24"><path d="M20.52 3.48A11.94 11.94 0 0 0 12 0C5.37 0 0 5.37 0 12c0 2.11.55 4.16 1.6 5.97L0 24l6.22-1.57A11.94 11.94 0 0 0 12 24c6.63 0 12-5.37 12-12 0-3.21-1.25-6.22-3.48-8.52zM12 22c-1.85 0-3.67-.5-5.24-1.44l-.38-.22-3.69.93.98-3.58-.25-.38A9.94 9.94 0 0 1 2 12C2 6.48 6.48 2 12 2c2.67 0 5.18 1.04 7.07 2.93A9.94 9.94 0 0 1 22 12c0 5.52-4.48 10-10 10zm5.44-7.4c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.47-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37s-1.04 1.02-1.04 2.48 1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35z"/></svg>
+            Quiero mi página ahora
+          </a>
+          <a href="#beneficios" class="ghost-btn flex items-center justify-center gap-1 font-semibold text-base px-7 py-4 rounded-2xl">
+            Ver cómo funciona ↓
+          </a>
+        </div>
+      </div>
+
+      <!-- RIGHT: maps mock -->
+      <div class="w-full lg:w-[46%] flex justify-center lg:justify-end fade-up d5">
+        <div class="float w-full max-w-[340px]">
+          <div class="map-mock glow-blue">
+
+            <!-- Chrome bar -->
+            <div class="px-4 py-3 flex items-center gap-3" style="background:rgba(8,12,20,.9);border-bottom:1px solid rgba(255,255,255,.07)">
+              <div class="flex gap-1.5">
+                <div class="w-2.5 h-2.5 rounded-full" style="background:#FF5F57"></div>
+                <div class="w-2.5 h-2.5 rounded-full" style="background:#FEBC2E"></div>
+                <div class="w-2.5 h-2.5 rounded-full" style="background:#28C840"></div>
               </div>
-              <div>
-                <p class="text-sm font-bold text-gray-900">Tu Negocio Local</p>
-                <p class="text-xs text-gray-400">Monterrey, Nuevo León</p>
+              <div class="flex-1 rounded-lg text-xs px-3 py-1.5 text-center font-medium" style="background:rgba(255,255,255,.06);color:#64748B">
+                maps.google.com
               </div>
-              <span class="ml-auto text-yellow-400 text-sm font-bold">★ 4.8</span>
             </div>
-            <!-- Mapa simulado -->
-            <div class="relative bg-gradient-to-br from-green-50 via-blue-50 to-teal-50 h-36 overflow-hidden">
-              <!-- Calles simuladas -->
-              <div class="absolute inset-0 opacity-30">
-                <div class="absolute top-1/2 left-0 right-0 h-3 bg-white"></div>
-                <div class="absolute left-1/3 top-0 bottom-0 w-3 bg-white"></div>
-                <div class="absolute top-1/4 left-0 right-0 h-2 bg-white"></div>
-                <div class="absolute left-2/3 top-0 bottom-0 w-2 bg-white"></div>
+
+            <!-- Business header -->
+            <div class="px-4 py-3 flex items-center gap-3" style="background:rgba(13,18,30,.95);border-bottom:1px solid rgba(255,255,255,.05)">
+              <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(37,99,235,.25);border:1px solid rgba(37,99,235,.3)">
+                <svg class="w-5 h-5" style="fill:#60A5FA" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 0 1 9.5 9 2.5 2.5 0 0 1 12 6.5 2.5 2.5 0 0 1 14.5 9 2.5 2.5 0 0 1 12 11.5z"/></svg>
               </div>
-              <!-- Pin animado -->
+              <div class="flex-1 min-w-0">
+                <p class="text-sm font-bold text-white truncate">Tu Negocio Local</p>
+                <p class="text-xs truncate" style="color:#64748B">Juárez, Nuevo León · Abierto ahora</p>
+              </div>
+              <div class="flex items-center gap-1">
+                <span style="color:#FBBF24;font-size:.85rem">★</span>
+                <span class="text-sm font-bold text-white">4.8</span>
+              </div>
+            </div>
+
+            <!-- Map area -->
+            <div class="relative h-32 map-streets overflow-hidden" style="background:#0D1219">
+              <!-- streets -->
+              <div class="absolute inset-0 opacity-40">
+                <div class="absolute top-1/2 left-0 right-0 h-2.5 -translate-y-1/2" style="background:rgba(255,255,255,.07)"></div>
+                <div class="absolute left-1/3 top-0 bottom-0 w-2" style="background:rgba(255,255,255,.07)"></div>
+                <div class="absolute top-1/4 left-0 right-0 h-1.5" style="background:rgba(255,255,255,.05)"></div>
+                <div class="absolute left-2/3 top-0 bottom-0 w-1.5" style="background:rgba(255,255,255,.05)"></div>
+              </div>
+              <!-- pin -->
               <div class="absolute inset-0 flex items-center justify-center">
-                <div class="map-pin flex flex-col items-center">
-                  <div class="bg-electric text-white rounded-full p-2 shadow-lg">
-                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 0 1 9.5 9 2.5 2.5 0 0 1 12 6.5 2.5 2.5 0 0 1 14.5 9 2.5 2.5 0 0 1 12 11.5z"/></svg>
+                <div class="relative flex flex-col items-center">
+                  <div class="relative pin-pulse w-9 h-9 rounded-full flex items-center justify-center glow-sm" style="background:#2563EB">
+                    <svg class="w-4 h-4 fill-white" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 0 1 9.5 9 2.5 2.5 0 0 1 12 6.5 2.5 2.5 0 0 1 14.5 9 2.5 2.5 0 0 1 12 11.5z"/></svg>
                   </div>
-                  <div class="w-1 h-2 bg-electric rounded-b-full"></div>
+                  <div class="w-1 h-2 rounded-b-full" style="background:#2563EB"></div>
                 </div>
               </div>
             </div>
-            <!-- Botones tipo Maps -->
-            <div class="bg-white px-4 py-3">
+
+            <!-- Action buttons -->
+            <div class="px-4 py-4" style="background:rgba(13,18,30,.98)">
               <div class="flex gap-2 mb-3">
-                <button class="flex-1 flex items-center justify-center gap-1 bg-electric text-white text-xs font-bold py-2 rounded-xl">
+                <button class="flex-1 flex items-center justify-center gap-1.5 text-white text-xs font-bold py-2.5 rounded-xl transition-all" style="background:#2563EB">
                   📞 Llamar
                 </button>
-                <button class="flex-1 flex items-center justify-center gap-1 bg-green-500 text-white text-xs font-bold py-2 rounded-xl">
+                <button class="flex-1 flex items-center justify-center gap-1.5 text-white text-xs font-bold py-2.5 rounded-xl" style="background:#16A34A">
                   💬 WhatsApp
                 </button>
               </div>
-              <!-- Botón "Sitio Web" vacío -->
-              <div class="border-2 border-dashed border-red-200 bg-red-50 rounded-xl py-2 px-3 flex items-center justify-between">
-                <span class="text-xs text-red-400 font-medium">🌐 Sitio web</span>
-                <span class="text-xs bg-red-100 text-red-500 font-bold px-2 py-0.5 rounded-full">¡Vacío!</span>
+
+              <!-- Empty website -->
+              <div class="flex items-center justify-between px-3 py-2.5 rounded-xl mb-3" style="border:1.5px dashed rgba(239,68,68,.4);background:rgba(239,68,68,.07)">
+                <div class="flex items-center gap-2">
+                  <span class="text-sm">🌐</span>
+                  <span class="text-xs font-medium" style="color:#F87171">Sitio web</span>
+                </div>
+                <span class="text-xs font-bold px-2 py-0.5 rounded-full" style="background:rgba(239,68,68,.2);color:#F87171">Sin página</span>
               </div>
-              <p class="text-center text-xs text-gray-400 mt-2">← Nosotros resolvemos esto</p>
+
+              <!-- Arrow label -->
+              <div class="flex items-center justify-center gap-1.5">
+                <div class="h-px flex-1" style="background:linear-gradient(90deg,transparent,rgba(37,99,235,.4))"></div>
+                <span class="text-xs font-semibold" style="color:#60A5FA">Nosotros lo resolvemos</span>
+                <div class="h-px flex-1" style="background:linear-gradient(90deg,rgba(37,99,235,.4),transparent)"></div>
+              </div>
             </div>
+
           </div>
         </div>
-
-      </div>
-    </section>
-    <!-- /SECCIÓN HERO -->
-
-
-    <!-- ----------------------------------------------------------
-         SECCIÓN 2: BENEFICIOS
-    ---------------------------------------------------------- -->
-    <section id="beneficios" class="bg-gray-50 py-16 md:py-24 px-4 sm:px-6 lg:px-8">
-      <div class="max-w-6xl mx-auto">
-
-        <div class="text-center mb-12">
-          <span class="inline-block bg-blue-100 text-electric text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-3">¿Por qué hacerlo?</span>
-          <h2 class="text-3xl sm:text-4xl font-black text-gray-900 mb-3">
-            Lo que ganas con una <span class="text-electric">landing page</span>
-          </h2>
-          <p class="text-gray-400 max-w-xl mx-auto">Cada día sin página web es un cliente que se va con tu competencia.</p>
-        </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-
-          <!-- Tarjeta 1 -->
-          <div class="card-hover bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
-            <div class="text-4xl mb-4">🏆</div>
-            <h3 class="text-lg font-bold text-gray-900 mb-2">Confianza inmediata</h3>
-            <p class="text-gray-500 text-sm leading-relaxed">Un sitio profesional transmite seriedad desde el primer segundo. Tus clientes te comparan con negocios que sí tienen web.</p>
-          </div>
-
-          <!-- Tarjeta 2 -->
-          <div class="card-hover bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
-            <div class="text-4xl mb-4">📱</div>
-            <h3 class="text-lg font-bold text-gray-900 mb-2">Optimizada para celular</h3>
-            <p class="text-gray-500 text-sm leading-relaxed">El 90% de tus clientes te buscan desde su teléfono. Tu página cargará rápido y se verá perfecta en cualquier pantalla.</p>
-          </div>
-
-          <!-- Tarjeta 3 -->
-          <div class="card-hover bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
-            <div class="text-4xl mb-4">💬</div>
-            <h3 class="text-lg font-bold text-gray-900 mb-2">Más mensajes y llamadas</h3>
-            <p class="text-gray-500 text-sm leading-relaxed">Botones de WhatsApp y llamada directa al alcance del pulgar. Diseñados para convertir visitas en clientes reales.</p>
-          </div>
-
-          <!-- Tarjeta 4 -->
-          <div class="card-hover bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
-            <div class="text-4xl mb-4">⚡</div>
-            <h3 class="text-lg font-bold text-gray-900 mb-2">Entrega ultra rápida</h3>
-            <p class="text-gray-500 text-sm leading-relaxed">Sin procesos largos. En poco tiempo tienes tu página lista, publicada y conectada a tu perfil de Google Maps.</p>
-          </div>
-
-          <!-- Tarjeta 5 -->
-          <div class="card-hover bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
-            <div class="text-4xl mb-4">📍</div>
-            <h3 class="text-lg font-bold text-gray-900 mb-2">Visible en Google Maps</h3>
-            <p class="text-gray-500 text-sm leading-relaxed">El botón de "Sitio web" en tu ficha dejará de estar vacío. Cada persona que te encuentre en Maps llegará directo a ti.</p>
-          </div>
-
-        </div>
-      </div>
-    </section>
-    <!-- /SECCIÓN BENEFICIOS -->
-
-
-    <!-- ----------------------------------------------------------
-         SECCIÓN 3: CONTACTO / CTA FINAL
-    ---------------------------------------------------------- -->
-    <section id="contacto" class="bg-electric py-16 md:py-24 px-4 sm:px-6 lg:px-8">
-      <div class="max-w-3xl mx-auto text-center">
-        <span class="inline-block bg-white/20 text-white text-xs font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-5">¿Listo para crecer?</span>
-        <h2 class="text-3xl sm:text-4xl md:text-5xl font-black text-white mb-5 leading-tight">
-          Tu página web, lista<br/>en tiempo récord 🚀
-        </h2>
-        <p class="text-blue-100 text-lg mb-10 max-w-xl mx-auto">
-          Escríbenos ahora por WhatsApp, cuéntanos de tu negocio y recibe una propuesta sin compromiso.
-        </p>
-        <a href="https://wa.me/5218117920716?text=Hola%2C%20me%20interesa%20una%20landing%20page%20para%20mi%20negocio"
-           target="_blank"
-           class="inline-flex items-center justify-center gap-3 bg-white text-electric font-black text-lg px-10 py-5 rounded-2xl shadow-2xl hover:bg-blue-50 transition-all active:scale-95 w-full sm:w-auto">
-          <svg class="w-6 h-6 fill-current text-green-500 flex-shrink-0" viewBox="0 0 24 24"><path d="M20.52 3.48A11.94 11.94 0 0 0 12 0C5.37 0 0 5.37 0 12c0 2.11.55 4.16 1.6 5.97L0 24l6.22-1.57A11.94 11.94 0 0 0 12 24c6.63 0 12-5.37 12-12 0-3.21-1.25-6.22-3.48-8.52zM12 22c-1.85 0-3.67-.5-5.24-1.44l-.38-.22-3.69.93.98-3.58-.25-.38A9.94 9.94 0 0 1 2 12C2 6.48 6.48 2 12 2c2.67 0 5.18 1.04 7.07 2.93A9.94 9.94 0 0 1 22 12c0 5.52-4.48 10-10 10zm5.44-7.4c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.47-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37s-1.04 1.02-1.04 2.48 1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35z"/></svg>
-          Escribir por WhatsApp ahora
-        </a>
-        <p class="text-blue-200 text-sm mt-5">Sin compromisos · Respuesta rápida · 100% personalizado</p>
-      </div>
-    </section>
-    <!-- /SECCIÓN CONTACTO -->
-
-
-    <!-- ==============================================================
-         ↓↓↓ ZONA PARA AGREGAR MÁS SECCIONES EN EL FUTURO ↓↓↓
-         Copia y pega nuevas <section> aquí, antes del cierre </main>
-    =============================================================== -->
-
-
-  </main>
-  <!-- /MAIN -->
-
-
-  <!-- ============================================================
-       FOOTER
-  ============================================================ -->
-  <footer class="bg-slate-900 text-gray-400 py-10 px-4 sm:px-6 lg:px-8">
-    <div class="max-w-6xl mx-auto">
-
-      <!-- Fila principal -->
-      <div class="flex flex-col md:flex-row items-center md:items-start justify-between gap-8 mb-8">
-
-        <!-- Logo + tagline -->
-        <div class="text-center md:text-left">
-          <p class="text-2xl font-black text-white tracking-tight mb-1">
-            <span class="text-electric">m</span>Arto <span class="text-xs font-semibold tracking-widest text-electric uppercase bg-blue-900/40 px-2 py-0.5 rounded-full align-middle">web</span>
-          </p>
-          <p class="text-sm text-gray-500 max-w-xs">Landing pages que convierten visitas en clientes reales.</p>
-        </div>
-
-        <!-- Links secundarios -->
-        <nav class="flex flex-wrap justify-center md:justify-end gap-x-6 gap-y-2 text-sm">
-          <a href="#inicio"     class="hover:text-white transition-colors">Inicio</a>
-          <a href="#beneficios" class="hover:text-white transition-colors">Beneficios</a>
-          <a href="#contacto"   class="hover:text-white transition-colors">Contacto</a>
-
-          <a href="privacidad.html" class="hover:text-white transition-colors">Aviso de Privacidad</a>
-          
-          <a href="https://wa.me/5218117920716" target="_blank" class="hover:text-white transition-colors">WhatsApp</a>
-        </nav>
-      </div>
-
-      <!-- Línea divisora -->
-      <div class="border-t border-gray-700/50 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
-        <p class="text-center sm:text-left">© 2026 mArto web. Todos los derechos reservados.</p>
-        <p class="text-gray-600">Hecho en Monterrey, México</p>
       </div>
 
     </div>
-  </footer>
-  <!-- /FOOTER -->
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════
+     PROBLEMA → SOLUCIÓN (puente narrativo)
+════════════════════════════════════════════ -->
+<div class="section-divider"></div>
+<section class="py-16 px-4 sm:px-6" style="background:#0A0F1A">
+  <div class="max-w-4xl mx-auto text-center reveal">
+    <p class="text-base leading-relaxed" style="color:#64748B;max-width:640px;margin:0 auto">
+      La mayoria de los usuarios que encuentran un negocio en Google Maps
+      <strong class="text-white">visitan su sitio web antes de llamar.</strong>
+      Si el tuyo está vacío — o peor, no existe —
+      <span style="color:#F87171">esos clientes se van con tu competencia.</span>
+    </p>
+  </div>
+</section>
+<div class="section-divider"></div>
+
+
+<!-- ════════════════════════════════════════════
+     BENEFICIOS
+════════════════════════════════════════════ -->
+<section id="beneficios" class="relative py-20 md:py-28 px-4 sm:px-6 lg:px-8 section-glow overflow-hidden" style="background:#080C14">
+
+  <div class="max-w-6xl mx-auto">
+
+    <div class="text-center mb-16 reveal">
+      <span class="tag mb-4 inline-block">Lo que incluye tu landing</span>
+      <h2 class="font-black tracking-tight mb-4" style="font-size:clamp(2rem,4vw,3rem);line-height:1.1">
+        Una página que trabaja por ti<br/>
+        <span class="grad-text-warm">24 horas al día</span>
+      </h2>
+      <p style="color:#64748B;max-width:480px;margin:0 auto;font-size:.95rem">
+        No es solo una página bonita. Es tu tarjeta de presentación digital, siempre disponible.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+
+      <!-- card macro -->
+      <div class="benefit-card rounded-2xl p-6 reveal" style="animation-delay:.05s">
+        <div class="text-3xl mb-4">⚡</div>
+        <h3 class="text-white font-bold text-base mb-2">Entrega en menos de una semana</h3>
+        <p class="text-sm leading-relaxed" style="color:#64748B">Tu página lista, publicada y enlazada a tu perfil de Google Maps. Sin esperas largas ni procesos complicados.</p>
+      </div>
+
+      <div class="benefit-card rounded-2xl p-6 reveal" style="animation-delay:.12s">
+        <div class="text-3xl mb-4">📱</div>
+        <h3 class="text-white font-bold text-base mb-2">Diseñada para el celular</h3>
+        <p class="text-sm leading-relaxed" style="color:#64748B">La mayoria de tus clientes te buscan desde el teléfono. Botones grandes, carga rápida y experiencia perfecta en cualquier pantalla.</p>
+      </div>
+
+      <div class="benefit-card rounded-2xl p-6 reveal" style="animation-delay:.19s">
+        <div class="text-3xl mb-4">💬</div>
+        <h3 class="text-white font-bold text-base mb-2">CTA directo a WhatsApp</h3>
+        <p class="text-sm leading-relaxed" style="color:#64748B">Botones estratégicamente ubicados para que el visitante te escriba en un toque. Más mensajes. Más clientes. Más ventas.</p>
+      </div>
+
+      <div class="benefit-card rounded-2xl p-6 reveal" style="animation-delay:.26s">
+        <div class="text-3xl mb-4">🔍</div>
+        <h3 class="text-white font-bold text-base mb-2">Visible en Google</h3>
+        <p class="text-sm leading-relaxed" style="color:#64748B">El botón "Sitio web" de tu ficha dejará de estar vacío. Mayor visibilidad en los resultados de búsqueda.</p>
+      </div>
+
+      <div class="benefit-card rounded-2xl p-6 reveal" style="animation-delay:.33s">
+        <div class="text-3xl mb-4">🏆</div>
+        <h3 class="text-white font-bold text-base mb-2">Confianza desde el primer clic</h3>
+        <p class="text-sm leading-relaxed" style="color:#64748B">Un diseño premium hace que tu negocio se vea más profesional que el de tu competencia local. Primera impresión = más clientes.</p>
+      </div>
+
+      <div class="benefit-card rounded-2xl p-6 reveal" style="animation-delay:.4s">
+        <div class="text-3xl mb-4">🎯</div>
+        <h3 class="text-white font-bold text-base mb-2">100% enfocada en conversión</h3>
+        <p class="text-sm leading-relaxed" style="color:#64748B">Cada sección, cada texto y cada botón están diseñados con un solo objetivo: que el visitante te contacte ahora, no después.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════
+     PROCESO
+════════════════════════════════════════════ -->
+<div class="section-divider"></div>
+<section id="proceso" class="py-20 md:py-28 px-4 sm:px-6 lg:px-8" style="background:#0A0F1A">
+  <div class="max-w-5xl mx-auto">
+
+    <div class="text-center mb-16 reveal">
+      <span class="tag mb-4 inline-block">Sin complicaciones</span>
+      <h2 class="font-black tracking-tight mb-4" style="font-size:clamp(2rem,4vw,3rem);line-height:1.1">
+        De cero a publicado<br/>
+        <span class="grad-text">en 3 pasos simples</span>
+      </h2>
+    </div>
+
+    <div class="flex flex-col gap-5 reveal">
+
+      <div class="step-card rounded-2xl p-6 flex items-start gap-5">
+        <div class="proc-num">1</div>
+        <div>
+          <h3 class="text-white font-bold mb-1">Nos escribes por WhatsApp</h3>
+          <p class="text-sm leading-relaxed" style="color:#64748B">Nos cuentas a qué se dedica tu negocio, cuál es tu zona y qué quieres que tus clientes vean. Eso es todo. Sin formularios infinitos, sin reuniones.</p>
+        </div>
+      </div>
+
+      <div class="step-card rounded-2xl p-6 flex items-start gap-5">
+        <div class="proc-num">2</div>
+        <div>
+          <h3 class="text-white font-bold mb-1">Diseñamos y desarrollamos tu página</h3>
+          <p class="text-sm leading-relaxed" style="color:#64748B">En menos de 72 horas te enviamos una vista previa. Revisas, pides ajustes y aprobamos juntos. Tú tienes el control total del resultado.</p>
+        </div>
+      </div>
+
+      <div class="step-card rounded-2xl p-6 flex items-start gap-5">
+        <div class="proc-num">3</div>
+        <div>
+          <h3 class="text-white font-bold mb-1">Publicamos y conectamos tu ficha</h3>
+          <p class="text-sm leading-relaxed" style="color:#64748B">Subimos tu página en línea con dominio o subdominio y te ayudamos a pegar el enlace en tu perfil de Google Maps. A partir de ahí, empieza a trabajar sola.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Mid-page CTA -->
+    <div class="mt-12 text-center reveal">
+      <a href="https://wa.me/5218117920716?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20mi%20landing%20page"
+         target="_blank"
+         class="shimmer-btn inline-flex items-center gap-2 text-white font-bold text-base px-8 py-4 rounded-2xl">
+        <svg class="w-5 h-5 fill-white flex-shrink-0" viewBox="0 0 24 24"><path d="M20.52 3.48A11.94 11.94 0 0 0 12 0C5.37 0 0 5.37 0 12c0 2.11.55 4.16 1.6 5.97L0 24l6.22-1.57A11.94 11.94 0 0 0 12 24c6.63 0 12-5.37 12-12 0-3.21-1.25-6.22-3.48-8.52zM12 22c-1.85 0-3.67-.5-5.24-1.44l-.38-.22-3.69.93.98-3.58-.25-.38A9.94 9.94 0 0 1 2 12C2 6.48 6.48 2 12 2c2.67 0 5.18 1.04 7.07 2.93A9.94 9.94 0 0 1 22 12c0 5.52-4.48 10-10 10zm5.44-7.4c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.47-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37s-1.04 1.02-1.04 2.48 1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35z"/></svg>
+        Empezar mi proyecto
+      </a>
+      <p class="text-xs mt-3" style="color:#475569">Sin compromiso · Te respondemos lo más rápido posible</p>
+    </div>
+  </div>
+</section>
+<div class="section-divider"></div>
+
+
+<!-- ════════════════════════════════════════════
+     TECH TRUST BAR
+════════════════════════════════════════════ -->
+<section class="py-12 px-4" style="background:#080C14">
+  <div class="max-w-4xl mx-auto reveal">
+    <p class="text-center text-xs font-bold uppercase tracking-widest mb-6" style="color:#334155">Construido con tecnología de primer nivel</p>
+    <div class="flex flex-wrap justify-center items-center gap-6 sm:gap-10">
+      <span class="glass-light rounded-xl px-4 py-2 text-xs font-semibold" style="color:#64748B">HTML5 semántico</span>
+      <span class="glass-light rounded-xl px-4 py-2 text-xs font-semibold" style="color:#64748B">Tailwind CSS</span>
+      <span class="glass-light rounded-xl px-4 py-2 text-xs font-semibold" style="color:#64748B">Botón directo a WhatsApp</span>
+      <span class="glass-light rounded-xl px-4 py-2 text-xs font-semibold" style="color:#64748B">Mobile-First</span>
+      
+    </div>
+  </div>
+</section>
+<div class="section-divider"></div>
+
+
+<!-- ════════════════════════════════════════════
+     CTA FINAL
+════════════════════════════════════════════ -->
+<section id="contacto" class="relative py-24 md:py-32 px-4 sm:px-6 lg:px-8 overflow-hidden" style="background:#080C14">
+
+  <!-- Glow background -->
+  <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+    <div class="w-[600px] h-[400px] rounded-full" style="background:radial-gradient(ellipse,rgba(37,99,235,.2) 0%,transparent 70%);filter:blur(60px)"></div>
+  </div>
+
+  <div class="relative max-w-3xl mx-auto text-center reveal">
+    <span class="tag mb-6 inline-block">¿Listo para tener más clientes?</span>
+
+    <h2 class="font-black tracking-tight mb-5 text-glow" style="font-size:clamp(2.2rem,5vw,3.5rem);line-height:1.08">
+      Activa tu página web<br/>
+      <span class="grad-text">este fin de semana.</span>
+    </h2>
+
+    <p class="text-lg leading-relaxed mb-4" style="color:#64748B;max-width:520px;margin:0 auto 1.5rem">
+      Escríbenos ahora, cuéntanos de tu negocio y recibe una propuesta personalizada. Sin costo. Sin compromiso.
+    </p>
+
+    <div class="flex flex-col items-center gap-2 mb-10">
+      <div class="flex items-center gap-2 text-sm" style="color:#60A5FA">
+        <span style="color:#22C55E">✓</span> Elige como publicarlo
+        <span class="mx-2" style="color:#1E3A5F">|</span>
+        <span style="color:#22C55E">✓</span> Entrega en menos de una semana
+        <span class="mx-2" style="color:#1E3A5F">|</span>
+      </div>
+    </div>
+
+    <a href="https://wa.me/5218117920716?text=Hola%2C%20me%20interesa%20una%20landing%20page%20para%20mi%20negocio"
+       target="_blank"
+       class="shimmer-btn inline-flex items-center justify-center gap-3 text-white font-black text-lg px-10 py-5 rounded-2xl w-full sm:w-auto">
+      <svg class="w-6 h-6 fill-white flex-shrink-0" viewBox="0 0 24 24"><path d="M20.52 3.48A11.94 11.94 0 0 0 12 0C5.37 0 0 5.37 0 12c0 2.11.55 4.16 1.6 5.97L0 24l6.22-1.57A11.94 11.94 0 0 0 12 24c6.63 0 12-5.37 12-12 0-3.21-1.25-6.22-3.48-8.52zM12 22c-1.85 0-3.67-.5-5.24-1.44l-.38-.22-3.69.93.98-3.58-.25-.38A9.94 9.94 0 0 1 2 12C2 6.48 6.48 2 12 2c2.67 0 5.18 1.04 7.07 2.93A9.94 9.94 0 0 1 22 12c0 5.52-4.48 10-10 10zm5.44-7.4c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.95 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.47-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37s-1.04 1.02-1.04 2.48 1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35z"/></svg>
+      Escribir por WhatsApp ahora
+    </a>
+
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════════ -->
+<footer style="background:#050810;border-top:1px solid rgba(255,255,255,.05)">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-10">
+
+    <div class="flex flex-col md:flex-row items-center md:items-start justify-between gap-8 mb-8">
+      <div class="text-center md:text-left">
+        <p class="text-xl font-black text-white mb-1">
+          <span style="color:#60A5FA">m</span>Arto
+          <span class="tag ml-1" style="font-size:.6rem;vertical-align:middle">web</span>
+        </p>
+        <p class="text-xs" style="color:#334155">Landing pages que consiguen clientes reales.</p>
+      </div>
+
+      <nav class="flex flex-wrap justify-center md:justify-end gap-x-6 gap-y-2 text-sm" style="color:#475569">
+        <a href="#inicio"      class="hover:text-white transition-colors">Inicio</a>
+        <a href="#beneficios"  class="hover:text-white transition-colors">Beneficios</a>
+        <a href="#proceso"     class="hover:text-white transition-colors">Proceso</a>
+        <a href="#contacto"    class="hover:text-white transition-colors">Contacto</a>
+        <a href="privacidad.html" class="hover:text-white transition-colors">Privacidad</a>
+      </nav>
+    </div>
+
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-3 pt-6 text-xs" style="border-top:1px solid rgba(255,255,255,.05);color:#334155">
+      <p>© 2026 mArto web. Todos los derechos reservados.</p>
+      <p>Hecho en Juárez, Nuevo León</p>
+    </div>
+
+  </div>
+</footer>
+
+
+<!-- ════════════════════════════════════════════
+     SCRIPTS
+════════════════════════════════════════════ -->
+<script>
+// Nav scroll effect
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 24);
+}, { passive:true });
+
+// Mobile menu
+function toggleMenu(){
+  const m = document.getElementById('mobile-menu');
+  m.classList.toggle('open');
+}
+function closeMenu(){
+  document.getElementById('mobile-menu').classList.remove('open');
+}
+
+// Scroll reveal
+const observer = new IntersectionObserver(entries => {
+  entries.forEach((e, i) => {
+    if(e.isIntersecting){
+      const delay = e.target.dataset.delay || 0;
+      setTimeout(() => e.target.classList.add('visible'), +delay);
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold:.12 });
+
+document.querySelectorAll('.reveal').forEach((el, i) => {
+  el.dataset.delay = i * 40;
+  observer.observe(el);
+});
+
+// Smooth anchor scroll
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const id = a.getAttribute('href').slice(1);
+    const el = document.getElementById(id);
+    if(el){ e.preventDefault(); el.scrollIntoView({ behavior:'smooth', block:'start' }); closeMenu(); }
+  });
+});
+</script>
 
 </body>
 </html>
